@@ -1,5 +1,5 @@
 import {Aspect} from "./Aspect.ts"
 
-export class AspectList {
+export class ConsequenceList {
     [key: number] : Aspect;
 }

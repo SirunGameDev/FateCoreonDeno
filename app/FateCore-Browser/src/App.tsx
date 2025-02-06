@@ -3,22 +3,24 @@ import './App.css'
 import { useState } from 'react'
 // @ts-expect-error Unable to infer type at the moment
 import reactLogo from './assets/react.svg'
-
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Route, Routes } from "react-router";
+import Layout from "./pages/Layout.tsx";
+import Start from "./pages/Start.tsx";
+import CharacterSheet from "./pages/CharacterSheet.tsx";
+import NoPage from "./pages/NoPage.tsx";
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <h1>Fate Core on Deno</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-
-      </div>
-
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Start />} />
+          <Route path="/character" element={<CharacterSheet />} />
+          <Route path="*" element={<NoPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App

@@ -5,7 +5,7 @@ export class Aspect {
 
     #context : string;
 
-    #freeUsage: int;
+    #freeUsage: number;
 
     constructor (desc : string , lifetime : string, context : string, freeUsage = 0) {
         this.#description = desc;
@@ -27,11 +27,11 @@ export class Aspect {
         return this.#freeUsage;
     }
 
-    addUses(add : int = 2) {
+    addUses(add : number = 2) {
         this.#freeUsage += add;
     }
 
-    useUsages(sub : int = 1) {
+    useUsages(sub : number = 1) {
         this.#freeUsage -= sub;
     }
 
