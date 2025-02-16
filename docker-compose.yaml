@@ -16,3 +16,7 @@ services:
     tty: true
     command:
       - /bin/bash
+      - -c
+      - |
+        cd FateCore-Browser/
+        deno task dev --host
