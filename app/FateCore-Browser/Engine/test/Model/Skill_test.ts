@@ -1,8 +1,13 @@
-import { assertEquals } from "jsr:@std/assert";
-import { Skill } from "../../Model/Extra.ts"
+import { assertEquals, assertInstanceOf, assertThrows } from "jsr:@std/assert";
+import { Skill } from "../../Model/Skill.ts"
 
 Deno.test(function constructorTest() {
-    const SkillObject = new Skill ();
+    const SkillObject = new Skill ("Athletik", 0);
 
-    assertEquals(true, SkillObject instanceof Skill);
+    assertInstanceOf(SkillObject, Skill);
+
+    assertThrows(() => {const FailedObject = new Skill ("Hunger", 0)})
+    assertThrows(() => {const FailedObject = new Skill ("Athletik", 10)})
+    assertThrows(() => {const FailedObject = new Skill ("Athletik", -5)})
+
 });
