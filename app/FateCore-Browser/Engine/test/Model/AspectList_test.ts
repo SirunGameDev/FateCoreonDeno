@@ -15,5 +15,8 @@ Deno.test(function constructorTest() {
     assertEquals(1, AspectListObject.counter);
 
     const AspectListObject2 = new AspectList(AspectObject, AspectObject, AspectObject);
-    assertEquals (3, AspectListObject2.counter)
+    assertEquals (3, AspectListObject2.counter);
+
+    AspectListObject2.pop();
+    assertEquals (2, AspectListObject2.counter);
 });

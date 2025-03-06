@@ -1,12 +1,9 @@
-import {Aspect} from "./Aspect.ts"
-
-export class AspectList {
+import { Aspect } from "./Aspect.ts"
+import { AnyList } from "./AnyList.ts"
+export class AspectList extends AnyList {
     [key: number] : Aspect;
-    counter : number = 0;
     constructor(...aspectlist : Aspect[]) {
-        aspectlist.forEach(element => {
-            this[this.counter] = element;
-            this.counter++;
-        }); 
+        super(...aspectlist);
     }
+
 }

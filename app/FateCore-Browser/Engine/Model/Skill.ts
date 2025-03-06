@@ -1,8 +1,10 @@
+import { Action } from "./Action.ts";
+
 export class Skill {
     #name : string = "";
     #value : number = 0;
 
-    #SkillsOverview = [
+    static SkillsOverview = [
         {DE: "Athletik", overcome:true, createAdventage: true, attack:false, defend:true },
         {DE: "Charisma", overcome:true, createAdventage: true, attack:false, defend:true },
         {DE: "Diebeskunst", overcome:true, createAdventage: true, attack:false, defend:false },
@@ -23,7 +25,7 @@ export class Skill {
         {DE: "Wissen", overcome:true, createAdventage: true, attack:false, defend:false },
     ];
 
-    constructor(name : string, value : number) {
+    constructor(name : string, value : number = 0) {
         if(value < 9 && value > -5) {
             this.#value = value;
         }
@@ -31,10 +33,21 @@ export class Skill {
             throw new Error('Value not fitting')
         }
         // todo: Make Translations
-        if(this.#SkillsOverview.find(element => name == element.DE)) {
+        if(Skill.SkillsOverview.find(element => name == element.DE)) {
             this.#name = name;
         }else {
             throw new Error('Skillname not fitting')
         }
+    }
+    getName() : string {
+        return this.#name;
+    }
+
+    getValue() : number {
+        return this.#value;
+    }
+
+    makeAction() {
+        return Action.check(this.#value);
     }
 }

@@ -2,7 +2,7 @@ import { assertEquals, assertInstanceOf, assertThrows } from "jsr:@std/assert";
 import { Skill } from "../../Model/Skill.ts"
 
 Deno.test(function constructorTest() {
-    const SkillObject = new Skill ("Athletik", 0);
+    const SkillObject = new Skill ("Athletik");
 
     assertInstanceOf(SkillObject, Skill);
 

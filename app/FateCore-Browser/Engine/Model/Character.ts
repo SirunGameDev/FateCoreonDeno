@@ -68,7 +68,9 @@ export class Character {
     setSkills(skilllist : SkillList) : void {
         this.#skills = skilllist;
     }
-
+    getSkills () : SkillList {
+        return this.#skills
+    }
     setConsequences(conList : ConsequenceList) : void {
         this.#consequences = conList;
     }
@@ -81,5 +83,14 @@ export class Character {
     }
     setStunts ( StuntList : StuntList) : void {
         this.#stunts = StuntList;
+    }
+    getStunts () : StuntList {
+        return this.#stunts;
+    }
+    getFatePoints() : number {
+        return this.#fatepoints;
+    }
+    setFatePoints(n : number) {
+        this.#fatepoints = n;
     }
 }

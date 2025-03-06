@@ -7,7 +7,7 @@ export class Aspect {
 
     #freeUsage: number;
 
-    constructor (desc : string , lifetime : string, context : string, freeUsage = 0) {
+    constructor (desc : string , lifetime : string = "eternal", context : string = "Character", freeUsage = 0) {
         this.#description = desc;
         this.#lifetime = lifetime;
         this.#context = context;

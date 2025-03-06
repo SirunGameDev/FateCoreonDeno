@@ -1,5 +1,5 @@
 import { Stress } from "./Stress.ts";
-
-export class StressList {
+import { AnyList } from "./AnyList.ts"
+export class StressList extends AnyList {
     [key: number ] : Stress;
 }
