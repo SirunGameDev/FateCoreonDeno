@@ -3,11 +3,15 @@ import { Character } from "../Model/Character.ts";
 import { Aspect } from "../Model/Aspect.ts";
 import { Skill } from "../Model/Skill.ts";
 import { Stunt } from "../Model/Stunt.ts";
-
+import { Extra } from "../Model/Extra.ts";
+import { Consequence } from "../Model/Consequence.ts";
+import { Stress } from "../Model/Stress.ts";
 import { AspectList} from "../Model/AspectList.ts";
 import { SkillList } from "../Model/SkillList.ts";
 import { StuntList } from "../Model/StuntList.ts";
-
+import { ExtraList } from "../Model/ExtraList.ts";
+import { StressList } from "../Model/StressList.ts";
+import { ConsequenceList } from "../Model/ConsequenceList.ts";
 export class ArchtypeCharacter {
     public static getArchtypes() {
         return [
@@ -29,6 +33,14 @@ export class ArchtypeCharacter {
 
         let Aspects = new AspectList(Aspect1, Aspect2, Aspect3, Aspect4, Aspect5 )
         CharacterObj.setAspects(Aspects);
+
+        let BodyStress = ArchtypeCharacter.generateStressListbyNumberType(2);
+        CharacterObj.setBodyStress(BodyStress);
+        let SoulStress = ArchtypeCharacter.generateStressListbyNumberType(2);
+        CharacterObj.setSoulStress(SoulStress);
+
+        let Consequences = ArchtypeCharacter.generateConsequenceListbyNumberType(3);
+        CharacterObj.setConsequences(Consequences);
 
         let SkillListObj = ArchtypeCharacter.generateRandomSkillList();
         CharacterObj.setSkills(SkillListObj);
@@ -52,6 +64,14 @@ export class ArchtypeCharacter {
         
         let SkillListObj = ArchtypeCharacter.generateRandomSkillList();
         CharacterObj.setSkills(SkillListObj);
+
+        let BodyStress = ArchtypeCharacter.generateStressListbyNumberType(2);
+        CharacterObj.setBodyStress(BodyStress);
+        let SoulStress = ArchtypeCharacter.generateStressListbyNumberType(2);
+        CharacterObj.setSoulStress(SoulStress);
+
+        let Consequences = ArchtypeCharacter.generateConsequenceListbyNumberType(3);
+        CharacterObj.setConsequences(Consequences);
 
         return CharacterObj;
     }
@@ -85,9 +105,27 @@ export class ArchtypeCharacter {
         CharacterObj.setSkills(SkillListObject);
 
         let StuntListObject = new StuntList(
-            new Stunt("Gelehrter und Heiler", "Du kannst Erholungsproben für körperichen Schaden mit Wissen machen.")
+            new Stunt("Gelehrter und Heiler", "Du kannst Erholungsproben für körperichen Schaden mit Wissen machen."),
+            new Stunt("Freundlicher Lügner", "Du kannst Charisma statt Täuschung benutzen, um mit einer Lüge einen Vorteil zu erschaffen."),
+            new Stunt("Die Macht der Logik", "Einmal pro Szene kannst du einen Fate-Punkt ausgeben, um eine spezielle Nachforschungs-Probe durchzuführen, die deine starken kombinatorischen Fähigkeiten repräsentiert. Dafür muss dein Charakter allerdings ein paar Minuten aufwenden. Für jede Erfolgsstufe dieser Probe erschaffst du einen Aspekt, entweder für die Szene oder das Ziel der Untersuchung. Nur einer dieser Aspekte ist mit einem freien Einsatz belegt."),
+            new Stunt("Davon hab' ich gelesen", "Du hast hunderte, wenn nicht sogar tausende, Bücher verschiedener Richtungen gelesen. Du kannst einen Fate-Punkt ausgeben, um Wissen statt einer beliebigen Fertigkeit für eine Probe oder für einen Austausch zu nutzen, wenn du irgendwie begründen kannst, dass du etwas über das Thema gelesen hast."),
+
+
         )
         CharacterObj.setStunts(StuntListObject);
+
+        let ExtraListObject = new ExtraList(
+            new Extra("Magie der Collegia Arcana"),
+        )
+        CharacterObj.setExtras(ExtraListObject);
+
+        let BodyStress = ArchtypeCharacter.generateStressListbyNumberType(2);
+        CharacterObj.setBodyStress(BodyStress);
+        let SoulStress = ArchtypeCharacter.generateStressListbyNumberType(2);
+        CharacterObj.setSoulStress(SoulStress);
+
+        let Consequences = ArchtypeCharacter.generateConsequenceListbyNumberType(3);
+        CharacterObj.setConsequences(Consequences);
 
         CharacterObj.setFatePoints(2);
         return CharacterObj;
@@ -105,5 +143,25 @@ export class ArchtypeCharacter {
             (skill) => SkillListArray.push(new Skill(skill, 0))
         )
         return new SkillList(...SkillListArray)
+    }
+
+    static generateConsequenceListbyNumberType (type : number) : ConsequenceList {
+        
+        let Consequences = []
+        for(let i = 0; i < type; i++) {
+            let number = (i+1)*2;
+            Consequences.push(new Consequence(new Stress(number)))
+        }
+        let ReturnList = new ConsequenceList(...Consequences);
+        return ReturnList;
+    }
+
+    static generateStressListbyNumberType(type : number) : StressList {
+        let Stresses = []
+        for(let i = 0; i < type; i++) {
+            Stresses.push(new Stress(i+1));
+        }
+        let ReturnList = new StressList(...Stresses);
+        return ReturnList;
     }
 }

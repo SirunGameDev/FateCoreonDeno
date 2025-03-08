@@ -2,7 +2,9 @@ import PresentAspects from "./PresentAspects";
 import PresentSkills from "./PresentSkills";
 import InteractiveLog from "./InteractiveLog";
 import DoActionforCharacter from "./DoActionforCharacter";
-import PresentStunt from "./PresentStunt.tsx"
+import PresentStunt from "./PresentStunt.tsx";
+import PresentExtra from "./PresentExtra.tsx";
+import PresentHealth from "./PresentHealth.tsx";
 import { useState } from 'react';
 function PresentCharacter ({Character}) {
     const [Interactive, setInteractive] = useState(false);
@@ -11,6 +13,7 @@ function PresentCharacter ({Character}) {
     let blhasAspects = Character.getAspects().counter > 0;
     let blhasSkills = Character.getSkills().counter > 0; 
     let blhasStunt = Character.getStunts().counter > 0;
+    let blhasExtra = Character.getExtras().counter > 0;
     function toggleInteractive() {
         setInteractive(!Interactive);
     }
@@ -43,6 +46,11 @@ function PresentCharacter ({Character}) {
                     Stunts = {Character.getStunts()} />
                 )  : (<div>No Stunts</div>)}
             <br />
+            {blhasExtra ? (
+                <PresentExtra
+                    Extras = {Character.getExtras()} />
+            ) : (<div>No Extra</div>)}
+            <br />
             {blhasSkills ? (
                 <PresentSkills 
                     Skills = {Character.getSkills()}
@@ -52,6 +60,12 @@ function PresentCharacter ({Character}) {
                      />
                 ) : (<div>No Skills</div>) }
             <br />
+            <PresentHealth
+                BodyStressList = {Character.getBodyStress()}
+                SoulStressList = {Character.getSoulStress()}
+                ConsequenceList = {Character.getConsequences()}
+
+                 />
         </>
     )
 }

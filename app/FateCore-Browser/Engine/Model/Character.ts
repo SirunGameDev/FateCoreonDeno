@@ -4,10 +4,10 @@ import { ExtraList } from "./ExtraList.ts";
 import { StuntList } from "./StuntList.ts";
 import { SkillList } from "./SkillList.ts";
 import { StressList } from "./StressList.ts";
+
 import { Extra } from "./Extra.ts";
-
-
 import { Aspect } from "./Aspect.ts";
+
 export class Character {
     #name : string = "";
     #pronouns : string = "";
@@ -24,7 +24,9 @@ export class Character {
 
     #extras : ExtraList;
 
-    #stress : StressList;
+    #soulstress : StressList;
+    #bodystress : StressList;
+
 
     #consequences : ConsequenceList;
 
@@ -33,7 +35,9 @@ export class Character {
         this.#skills = new SkillList();
         this.#stunts = new StuntList();
         this.#extras =  new ExtraList();
-        this.#stress = new StressList();
+        this.#soulstress = new StressList();
+        this.#bodystress = new StressList();
+
         this.#consequences = new ConsequenceList();
     }
     setName(name : string) : void {
@@ -74,9 +78,8 @@ export class Character {
     setConsequences(conList : ConsequenceList) : void {
         this.#consequences = conList;
     }
-
-    setStress (Stressl : StressList) : void {
-        this.#stress = Stressl;
+    getConsequences() : ConsequenceList {
+        return this.#consequences;
     }
     setExtras ( extraList : ExtraList) : void {
         this.#extras = extraList;
@@ -93,4 +96,20 @@ export class Character {
     setFatePoints(n : number) {
         this.#fatepoints = n;
     }
+    getExtras () : ExtraList {
+        return this.#extras;
+    }
+    setSoulStress (List : StressList) : void {
+       this.#soulstress = List;
+    }
+    getSoulStress () : StressList {
+        return this.#soulstress
+    }
+    setBodyStress (List : StressList) : void {
+        this.#bodystress = List;
+    }
+    getBodyStress () : StressList {
+        return this.#bodystress
+    }
+
 }

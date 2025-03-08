@@ -1,4 +1,5 @@
 import { Extra } from "./Extra.ts";
-export class ExtraList {
+import { AnyList } from "./AnyList.ts";
+export class ExtraList extends AnyList {
     [key: number] : Extra;
 }
