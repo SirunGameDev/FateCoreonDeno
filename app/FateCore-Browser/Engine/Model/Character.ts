@@ -8,6 +8,8 @@ import { StressList } from "./StressList.ts";
 import { Extra } from "./Extra.ts";
 import { Aspect } from "./Aspect.ts";
 
+import { Action } from "./Action.ts";
+
 export class Character {
     #name : string = "";
     #pronouns : string = "";
@@ -111,5 +113,26 @@ export class Character {
     getBodyStress () : StressList {
         return this.#bodystress
     }
+    doAction(skillname : string, action : string, paidfate : number = 0, freefate : number = 0) {
+        let fatebonus : number = freefate;
+        if(this.#fatepoints < paidfate) {
+            fatebonus = +fatebonus + +this.#fatepoints
+            this.#fatepoints = 0;
+        }
+        else {
+            this.#fatepoints = this.#fatepoints - paidfate;
+            fatebonus = +fatebonus + +paidfate
+        }
+        let Skill = this.#skills.findSkillbyString(skillname)
+        let SkillValue = 0
+        if (Skill) {
+            SkillValue += Skill.getValue();
+        }
+        // calculate Stuntbonus
+        let Stuntbonus = 0;
 
+        let result = SkillValue+(fatebonus*2)+Stuntbonus
+
+        return Action.check(result)
+    }
 }

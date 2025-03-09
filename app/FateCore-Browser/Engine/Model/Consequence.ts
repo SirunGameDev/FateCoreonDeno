@@ -5,7 +5,7 @@ export class Consequence {
     Stress? : Stress;
     Aspect? : Aspect;
 
-    constructor (Stress : Stress = new Stress(0)) {
-        this.Stress = Stress;
+    constructor (StressObj : Stress = new Stress(0)) {
+        this.Stress = StressObj;
     }
 }

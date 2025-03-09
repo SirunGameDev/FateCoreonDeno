@@ -3,7 +3,6 @@ import { useState } from 'react';
 import PresentCharacter from "./PresentCharacter.tsx"
 function ArchtypeSelector () {
     const [Archtype, setArchtype] = useState(false);
-    const JohnDoe = ArchtypeCharacter.getJohnDoe();
     const ArchetypeList = ArchtypeCharacter.getArchtypes();
     const htmlList = [];
     

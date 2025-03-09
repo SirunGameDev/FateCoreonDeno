@@ -18,6 +18,15 @@ function PresentCharacter ({Character}) {
         setInteractive(!Interactive);
     }
 
+    function resetFatePoints() {
+        Character.setFatePoints(3)
+        let text = "Fate Points resettet"
+        if(Log) {
+            text+=" "+Log;
+        }
+        setLog(text)
+    }
+
     return (
         <>
             <div><button onClick={toggleInteractive}>Toggle Interactive</button></div>
@@ -34,7 +43,7 @@ function PresentCharacter ({Character}) {
             <div><label>getDescription:</label> {Character.getDescription()} </div>
             <div><label>getPronouns:</label> {Character.getPronouns()} </div>
             <br />
-            <div><label>getFatePoints:</label> {Character.getFatePoints()} </div>
+            <div><label>getFatePoints:</label> {Character.getFatePoints()} {Interactive && <button onClick={() => resetFatePoints()}>Reset</button>}</div>
             <br />
             {blhasAspects ? (
                 <PresentAspects 
