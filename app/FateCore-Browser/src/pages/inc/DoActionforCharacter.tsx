@@ -1,9 +1,10 @@
 import { useState } from 'react';
 function DoActionforCharacter ({Character, Log, setLog}){
+    let SkillArray = Character.getSkills().getArray();
     const [Target, setTarget] = useState(2)
     const [FreeFate, setFreeFate] = useState(0)
     const [PaidFate, setPaidFate] = useState(0)
-    const [ActiveSkill, setActiveSkill] = useState(0)
+    const [ActiveSkill, setActiveSkill] = useState(SkillArray[0])
 
     function triggerOverCome() {
         triggerConsoleLog()
@@ -22,24 +23,26 @@ function DoActionforCharacter ({Character, Log, setLog}){
         setLog(result)
     }
     function triggerConsoleLog() {
-        console.log(Target+" "+FreeFate+" "+PaidFate)
+        console.log(ActiveSkill.getName()+" "+Target+" "+FreeFate+" "+PaidFate)
     }
     function resetInputs() {
+        setActiveSkill(SkillArray[0])
         setTarget(2);
         setFreeFate(0);
         setPaidFate(0);
     }
     let HTMLSkillDropdown = []
-    let SkillArray = Character.getSkills().getArray();
+    
     for (let i = 0; i < SkillArray.length; i++) {
         HTMLSkillDropdown.push(<option key={i} value={SkillArray[i].getName()}>{SkillArray[i].getName()}</option>)
     }
 
+    
     return (
         <>
 
         <div>
-            <select name="activeSkill" onChange={e => setActiveSkill(e.target.value)}>{HTMLSkillDropdown}</select> <br />
+            <select defaultValue={ActiveSkill} name="activeSkill" onChange={e => setActiveSkill(e.target.value)}>{HTMLSkillDropdown}</select> <br />
             <label>Zielwert <input name="target" type="number" value={Target} onChange={e => setTarget(e.target.value)} /> </label><br />
             
             <label>Freie Punkte <input name="FreePoints" type="number" value={FreeFate}  onChange={e => setFreeFate(e.target.value)} /></label><br />
