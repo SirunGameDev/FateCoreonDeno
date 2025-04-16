@@ -10,7 +10,6 @@ export class Stunt {
         {description: "allowActionforSkill"},
         {description: "addBonustoAction"},
         {description: "allowExceptionofRule"},
-        {description: "allowExceptionofRule"},
     ]
     
     constructor (name : string, description : string = "") {

@@ -1,16 +1,10 @@
 export class Action {
-    static overcome () {
-
-    }
-    static createAdvantage () {
-
-    }
-    static attack () {
-
-    }
-    static defend () {
-        
-    }
+    static ActionOverview = [
+        {DE: "Überwinden", EN: "Overcome"},
+        {DE: "Vorteil erschaffen", EN: "Create adventage"},
+        {DE: "Angreifen", EN: "Attack"},
+        {DE: "Verteidigen", EN: "Defend"},
+    ]
     static check (value : number) {
         let roll = Action.getTurboFateRoll()
         return roll+value;

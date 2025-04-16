@@ -3,7 +3,10 @@ import { Action } from "./Action.ts";
 export class Skill {
     #name : string = "";
     #value : number = 0;
-
+    static overcome = Action.ActionOverview[0];
+    static createAdventage = Action.ActionOverview[1];
+    static attack =  Action.ActionOverview[2];
+    static defend =  Action.ActionOverview[3];
     static SkillsOverview = [
         {DE: "Athletik", overcome:true, createAdventage: true, attack:false, defend:true },
         {DE: "Charisma", overcome:true, createAdventage: true, attack:false, defend:true },

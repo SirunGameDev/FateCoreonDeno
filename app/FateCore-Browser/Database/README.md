@@ -1,0 +1,1 @@
+deno run --no-prompt --allow-env --allow-net=db:5432 Database/Client.ts
