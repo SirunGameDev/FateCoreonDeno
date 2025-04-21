@@ -1,7 +1,7 @@
 import { Character } from "FateEngine/Model/Character.ts";
 import { useState } from 'react';
-import CreateCharacterForm from "./inc/CreateCharacterForm.tsx"
-import ArchtypeSelector from "./inc/ArchtypeSelector.tsx"
+import CreateCharacterForm from "./incCharacterSheet/CreateCharacterForm.tsx"
+import ArchtypeSelector from "./incCharacterSheet/ArchtypeSelector.tsx"
 export function CharacterSheet () {
     const [CharacterObject, setCharacterObject] = useState(false);
     const [OwnCharacterCreation, setOwnCharacterCreation] = useState(false);
