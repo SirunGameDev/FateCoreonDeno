@@ -54,7 +54,7 @@ export class User {
             RETURNING id;
             `
         );
-        // rows 0 0 because of RETURNING ID statement
+        // rows 0 0 because of RETURNING ID statement; side effect
         this.#id = id.rows[0][0];
     }
 

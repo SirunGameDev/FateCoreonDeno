@@ -1,4 +1,4 @@
-import {Action} from "Engine/Model/Action.ts";
+import {Action} from "FateEngine/Model/Action.ts";
 function PresentSkills ({Skills, Interactive, Log, setLog}) {
     function triggerSkillCheck (Skill) {
         setLog(""+Skill.getName()+": "+Skill.makeAction())

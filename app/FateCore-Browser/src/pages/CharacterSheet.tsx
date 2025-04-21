@@ -1,4 +1,4 @@
-import { Character } from "Engine/Model/Character.ts";
+import { Character } from "FateEngine/Model/Character.ts";
 import { useState } from 'react';
 import CreateCharacterForm from "./inc/CreateCharacterForm.tsx"
 import ArchtypeSelector from "./inc/ArchtypeSelector.tsx"
