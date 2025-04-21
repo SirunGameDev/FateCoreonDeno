@@ -30,7 +30,7 @@ const client = new Client(config);
 console.log("Client config read in")
 await client.connect();
 console.log("Client connected")
-await client.queryObject(`create table product (
+await client.queryObject(`create table IF NOT EXISTS testproduct (
     id integer primary key,
     name varchar(100) not null,
     price real not null
