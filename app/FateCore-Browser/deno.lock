@@ -1,12 +1,30 @@
 {
   "version": "4",
   "specifiers": {
+    "jsr:@jersey/postgres@~0.19.4": "0.19.4",
+    "jsr:@oak/commons@1": "1.0.1",
+    "jsr:@oak/oak@^17.1.4": "17.1.4",
     "jsr:@std/assert@*": "1.0.11",
+    "jsr:@std/assert@1": "1.0.11",
+    "jsr:@std/bytes@1": "1.0.5",
+    "jsr:@std/bytes@^1.0.5": "1.0.5",
+    "jsr:@std/crypto@1": "1.0.4",
+    "jsr:@std/crypto@^1.0.4": "1.0.4",
+    "jsr:@std/encoding@1": "1.0.10",
+    "jsr:@std/encoding@^1.0.10": "1.0.10",
+    "jsr:@std/encoding@^1.0.9": "1.0.9",
+    "jsr:@std/fmt@^1.0.6": "1.0.6",
+    "jsr:@std/http@1": "1.0.15",
     "jsr:@std/internal@^1.0.5": "1.0.5",
+    "jsr:@std/media-types@1": "1.1.0",
+    "jsr:@std/path@1": "1.0.8",
+    "jsr:@std/path@^1.0.8": "1.0.8",
+    "jsr:@tajpouria/cors@^1.2.1": "1.2.1",
     "npm:@deno/vite-plugin@1": "1.0.3_vite@6.0.11",
     "npm:@types/react-dom@^18.3.1": "18.3.5_@types+react@18.3.18",
     "npm:@types/react@^18.3.12": "18.3.18",
     "npm:@vitejs/plugin-react-swc@^3.7.1": "3.7.2_vite@6.0.11",
+    "npm:path-to-regexp@^6.3.0": "6.3.0",
     "npm:react-dom@^18.3.1": "18.3.1_react@18.3.1",
     "npm:react-router@*": "7.1.5_react@18.3.1_react-dom@18.3.1__react@18.3.1",
     "npm:react-router@^7.1.5": "7.1.5_react@18.3.1_react-dom@18.3.1__react@18.3.1",
@@ -15,14 +33,77 @@
     "npm:vite@^6.0.1": "6.0.11"
   },
   "jsr": {
+    "@jersey/postgres@0.19.4": {
+      "integrity": "85212fd58acbd462e3da486c1cb577bed41f45b8b6e307dce26cb6362c1df626",
+      "dependencies": [
+        "jsr:@std/bytes@^1.0.5",
+        "jsr:@std/crypto@^1.0.4",
+        "jsr:@std/encoding@^1.0.9",
+        "jsr:@std/fmt",
+        "jsr:@std/path@^1.0.8"
+      ]
+    },
+    "@oak/commons@1.0.1": {
+      "integrity": "889ff210f0b4292591721be07244ecb1b5c118742f5273c70cf30d7cd4184d0c",
+      "dependencies": [
+        "jsr:@std/assert@1",
+        "jsr:@std/bytes@1",
+        "jsr:@std/crypto@1",
+        "jsr:@std/encoding@1",
+        "jsr:@std/http",
+        "jsr:@std/media-types"
+      ]
+    },
+    "@oak/oak@17.1.4": {
+      "integrity": "60530b582bf276ff741e39cc664026781aa08dd5f2bc5134d756cc427bf2c13e",
+      "dependencies": [
+        "jsr:@oak/commons",
+        "jsr:@std/assert@1",
+        "jsr:@std/bytes@1",
+        "jsr:@std/http",
+        "jsr:@std/media-types",
+        "jsr:@std/path@1",
+        "npm:path-to-regexp"
+      ]
+    },
     "@std/assert@1.0.11": {
       "integrity": "2461ef3c368fe88bc60e186e7744a93112f16fd110022e113a0849e94d1c83c1",
       "dependencies": [
         "jsr:@std/internal"
       ]
     },
+    "@std/bytes@1.0.5": {
+      "integrity": "4465dd739d7963d964c809202ebea6d5c6b8e3829ef25c6a224290fbb8a1021e"
+    },
+    "@std/crypto@1.0.4": {
+      "integrity": "cee245c453bd5366207f4d8aa25ea3e9c86cecad2be3fefcaa6cb17203d79340"
+    },
+    "@std/encoding@1.0.9": {
+      "integrity": "025b8f18eb1749bc30d1353bf48b77d1eb5e35610220fa226f5a046b9240c5d7"
+    },
+    "@std/encoding@1.0.10": {
+      "integrity": "8783c6384a2d13abd5e9e87a7ae0520a30e9f56aeeaa3bdf910a3eaaf5c811a1"
+    },
+    "@std/fmt@1.0.6": {
+      "integrity": "a2c56a69a2369876ddb3ad6a500bb6501b5bad47bb3ea16bfb0c18974d2661fc"
+    },
+    "@std/http@1.0.15": {
+      "integrity": "435a4934b4e196e82a8233f724da525f7b7112f3566502f28815e94764c19159",
+      "dependencies": [
+        "jsr:@std/encoding@^1.0.10"
+      ]
+    },
     "@std/internal@1.0.5": {
       "integrity": "54a546004f769c1ac9e025abd15a76b6671ddc9687e2313b67376125650dc7ba"
+    },
+    "@std/media-types@1.1.0": {
+      "integrity": "c9d093f0c05c3512932b330e3cc1fe1d627b301db33a4c2c2185c02471d6eaa4"
+    },
+    "@std/path@1.0.8": {
+      "integrity": "548fa456bb6a04d3c1a1e7477986b6cffbce95102d0bb447c67c4ee70e0364be"
+    },
+    "@tajpouria/cors@1.2.1": {
+      "integrity": "eca42e4fb7cb3906ef0ee3d1e565dd6bb4632ccd8e70a95cf4279759743328f0"
     }
   },
   "npm": {
@@ -300,6 +381,9 @@
     "nanoid@3.3.8": {
       "integrity": "sha512-WNLf5Sd8oZxOm+TzppcYk8gVOgP+l58xNy58D0nbUnOxOWRWvlcCV4kUF7ltmI6PsrLl/BgKEyS4mqsGChFN0w=="
     },
+    "path-to-regexp@6.3.0": {
+      "integrity": "sha512-Yhpw4T9C6hPpgPeA28us07OJeqZ5EzQTkbfwuhsUg0c237RomFoETJgmp2sa3F/41gfLE6G5cqcYwznmeEeOlQ=="
+    },
     "picocolors@1.1.1": {
       "integrity": "sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA=="
     },
@@ -410,6 +494,7 @@
     "https://deno.land/std@0.214.0/fmt/colors.ts": "aeaee795471b56fc62a3cb2e174ed33e91551b535f44677f6320336aabb54fbb",
     "https://deno.land/std@0.214.0/io/buf_reader.ts": "c73aad99491ee6db3d6b001fa4a780e9245c67b9296f5bad9c0fa7384e35d47a",
     "https://deno.land/std@0.214.0/io/buf_writer.ts": "f82f640c8b3a820f600a8da429ad0537037c7d6a78426bbca2396fb1f75d3ef4",
+    "https://deno.land/std@0.214.0/io/types.ts": "748bbb3ac96abda03594ef5a0db15ce5450dcc6c0d841c8906f8b10ac8d32c96",
     "https://deno.land/std@0.214.0/path/_common/assert_path.ts": "2ca275f36ac1788b2acb60fb2b79cb06027198bc2ba6fb7e163efaedde98c297",
     "https://deno.land/std@0.214.0/path/_common/basename.ts": "569744855bc8445f3a56087fd2aed56bdad39da971a8d92b138c9913aecc5fa2",
     "https://deno.land/std@0.214.0/path/_common/common.ts": "6157c7ec1f4db2b4a9a187efd6ce76dcaf1e61cfd49f87e40d4ea102818df031",
@@ -510,11 +595,15 @@
     "https://deno.land/x/postgres@v0.19.3/query/oid.ts": "21fc714ac212350ba7df496f88ea9e01a4ee0458911d0f2b6a81498e12e7af4c",
     "https://deno.land/x/postgres@v0.19.3/query/query.ts": "510f9a27da87ed7b31b5cbcd14bf3028b441ac2ddc368483679d0b86a9d9f213",
     "https://deno.land/x/postgres@v0.19.3/query/transaction.ts": "8f4eef68f8e9b4be216199404315e6e08fe1fe98afb2e640bffd077662f79678",
+    "https://deno.land/x/postgres@v0.19.3/query/types.ts": "540f6f973d493d63f2c0059a09f3368071f57931bba68bea408a635a3e0565d6",
     "https://deno.land/x/postgres@v0.19.3/utils/deferred.ts": "5420531adb6c3ea29ca8aac57b9b59bd3e4b9a938a4996bbd0947a858f611080",
     "https://deno.land/x/postgres@v0.19.3/utils/utils.ts": "ca47193ea03ff5b585e487a06f106d367e509263a960b787197ce0c03113a738"
   },
   "workspace": {
     "dependencies": [
+      "jsr:@jersey/postgres@~0.19.4",
+      "jsr:@oak/oak@^17.1.4",
+      "jsr:@tajpouria/cors@^1.2.1",
       "npm:@deno/vite-plugin@1",
       "npm:@types/react-dom@^18.3.1",
       "npm:@types/react@^18.3.12",

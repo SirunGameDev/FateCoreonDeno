@@ -1,4 +1,4 @@
-import {ArchtypeCharacter} from '../../../FateEngine/Data/ArchtypeCharacter';
+import { ArchtypeCharacter } from 'FateEngine/Data/ArchtypeCharacter.ts';
 import { useState } from 'react';
 import PresentCharacter from "./PresentCharacter.tsx"
 function ArchtypeSelector () {

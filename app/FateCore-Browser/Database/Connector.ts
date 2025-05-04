@@ -1,4 +1,4 @@
-import { Client } from "https://deno.land/x/postgres/mod.ts";
+import { Client } from "@jersey/postgres";
 
 export class Connector {
 

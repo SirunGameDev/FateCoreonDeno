@@ -1,4 +1,4 @@
-import {Connector } from "../Connector.ts"
+import { Connector } from "../Connector.ts"
 
 export class User {
     #id : string = "";
@@ -56,6 +56,7 @@ export class User {
         );
         // rows 0 0 because of RETURNING ID statement; side effect
         this.#id = id.rows[0][0];
+        return this.#id;
     }
 
     async getUserFromDB() {

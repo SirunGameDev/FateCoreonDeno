@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import Layout from "./pages/Layout.tsx";
 import Start from "./pages/Start.tsx";
 import CharacterSheet from "./pages/CharacterSheet.tsx";
+import Account from "./pages/Account.tsx";
 import NoPage from "./pages/NoPage.tsx";
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Start />} />
           <Route path="/character" element={<CharacterSheet />} />
+          <Route path="/account" element={<Account />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

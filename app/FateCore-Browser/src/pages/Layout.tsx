@@ -11,7 +11,10 @@ const Layout = () => {
           <li>
             <Link to="../character">Charakter-Sheet</Link>
           </li>
-
+          <li>
+            <Link to="../account">Account</Link>
+          </li>
+          
         </ul>
       </nav>
 

@@ -10,16 +10,18 @@ services:
     ports:
       - 3000:3000
       - 5173:5173
+      - 8000:8000
     expose:
       - 3000
       - 5173
+      - 8000
     tty: true
     command:
       - /bin/bash
       - -c
       - |
         cd FateCore-Browser/
-        deno task dev --host
+        deno task dev
   db:
     image: postgres
     restart: always
@@ -31,6 +33,8 @@ services:
     #    target: /dev/shm
     #    tmpfs:
     #      size: 134217728 # 128*2^20 bytes = 128Mb
+
+    ## to do add persistence
     environment:
       POSTGRES_PASSWORD: NEEDTOCHANGEDENO
 
